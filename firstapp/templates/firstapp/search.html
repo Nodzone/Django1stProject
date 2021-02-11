@@ -1,0 +1,20 @@
+{% extends 'firstapp/base.html' %}
+
+{% block title %}
+    <title>Search Page</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% if my_data %}
+            {% for data in my_data %}
+        <div class="care">
+            <div class="card-header">This is {{ data.title }}</div>
+            <div class="card-body">
+               {{ data.body | safe}}
+            </div>
+        </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

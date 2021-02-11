@@ -1,0 +1,48 @@
+{% extends 'firstapp/base.html' %}
+
+{% block title %}
+    <title>Home-Page</title>
+     <link rel="stylesheet" type="text/css" href="../../static/firstapp/css/home.css"/>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <p> Hello Reader !</p>
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-bordered"  style=" color: black;">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">IMG</th>
+                        <th scope="col">Creat Date</th>
+                        <th scope="col">Update Date</th>
+                        <th scope="col">View More</th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody  style=" color: black;" >
+                    {% for post in all_data %}
+                        <tr>
+                            <th scope="row">{{ post.id }}</th>
+                             <td>{{ post.title }}</td>
+                            <td><img src="{{ post.cover_img.url }}" width="50%" alt="{{ post.title }}"> </td>
+
+                        <td>{{ post.date_created }} </td>
+                            <td>{{ post.date_updated }}</td>
+                         <td><a class="btn btn-success" href="firstapp/{{ post.id }}">View More</a> </td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+
+        <!-- Content here -->
+    </div>
+{% endblock %}

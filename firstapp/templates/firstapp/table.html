@@ -1,0 +1,37 @@
+{% extends 'firstapp/base.html' %}
+
+{% block title %}
+    <title>Table Page</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <br>
+        <div class="card">
+            <div class="card-header">This is Table IN My SQLite3</div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col" class="text-center">#ID</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">C-Date</th>
+                         <th scope="col">U-Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for dt in data %}
+                    <tr>
+                        <th scope="row" class="text-center">{{ forloop.counter }}</th>
+                        <td >{{ dt.title }}</td>
+                        <td>{{ dt.date_created }}</td>
+                        <td>@{{ dt.date_updated }}</td>
+                    </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
